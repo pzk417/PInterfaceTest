@@ -1,3 +1,15 @@
 # PInterfaceTest
 简单的python自动化测试实现
-v1.0
+v1.0：
+设计思路
+    1:从excel读取测试case
+    excel设计的字段：
+    Tase_name：案例名称
+    Interface_name：接口名称
+    Method：post/get
+    URL：执行url
+    Params：输入参数
+    Expectation：期望值
+    Result：实际结果
+    Function：调用函数
+    MLogin:是否需要登录
