@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 """
- 测试车辆进出报表 造数据
+ 测试车辆进出报表，模拟用户支付
+
 """
 
 __author__ = 'pzk'
@@ -23,7 +24,9 @@ conn=psycopg2.connect(database=pgname,user=pguser,password=pgpwd,host=host,port=
 cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
 
 '''
-t_yunpark_elapsed_time
+INSERT INTO public.t_yunpark_elapsed_time
+(guid, group_date, garage_guid, all_entry_elapsed_time, identify_entry_elapsed_time, scan_entry_elapsed_time, all_exit_elapsed_time, identify_exit_elapsed_time, scan_exit_elapsed_time, scan_pay_elapsed_time, create_time, update_time, is_delete)
+VALUES('', '', '', 0, 0, 0, 0, 0, 0, 0, '', '', false);
 8209cdb9ce2f4572a46415fce9da2324
 all_entry_elapsed_time:保留字段
 identify_entry_elapsed_time:入库耗时(车牌识别)
@@ -61,7 +64,7 @@ if __name__ == '__main__':
         daytime = date.today() + timedelta(days = -i)
         print uuidstr
         print daytime
-        insertt_yunpark_elapsed_time(uuidstr,str(daytime),'8209cdb9ce2f4572a46415fce9da2324')
+        # insertt_yunpark_elapsed_time(uuidstr,str(daytime),'8209cdb9ce2f4572a46415fce9da2324')
 
     conn.commit()
     cur.close()
